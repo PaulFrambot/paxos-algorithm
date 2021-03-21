@@ -34,8 +34,8 @@ public class Process extends UntypedAbstractActor {
 	private int estimate;  // estimate proposed value
 	private int nbAbortRead;
 	private int nbAbortImpose;
-	private HashMap<Integer, State> states; // states
-	private HashMap<Integer, Integer> acks; // acks
+	private HashMap<Integer, State> states;
+	private int nAck;
 	private int initialProposal; 
 	private boolean decided; 
 	private boolean isFaulty;
@@ -45,18 +45,18 @@ public class Process extends UntypedAbstractActor {
 	private long startTime;
 
 	public Process(int i, int n) {
-		N = n; id = i;
-		decided = false;
-		ballot = id - N; readBallot = 0; imposeBallot = id - N;
-		estimate = -1; proposal = -1; nbAbortRead = 0; nbAbortImpose = 0;
-		isFaulty = false;
-		isSilent = false;
-		hold = false;
-		crashProba = 0;
-		startTime = 0;
-		members = new ArrayList<ActorRef>();
-		states = new HashMap<Integer, State>();
-		acks = new HashMap<Integer, Integer>();
+		this.N = n; id = i;
+		this.decided = false;
+		this.ballot = id - N; readBallot = 0; imposeBallot = id - N;
+		this.estimate = -1; proposal = -1; nbAbortRead = 0; nbAbortImpose = 0;
+		this.isFaulty = false;
+		this.isSilent = false;
+		this.hold = false;
+		this.crashProba = 0;
+		this.startTime = 0;
+		this.members = new ArrayList<ActorRef>();
+		this.states = new HashMap<Integer, State>();
+		this.nAck = 0;
 	}
 	
 	public static Props createProcess(int i, int n) {
@@ -140,16 +140,13 @@ public class Process extends UntypedAbstractActor {
 	
 	public void receiveAck(AckMsg msg) {
 		this.nbAbortImpose++;
-		int nb = acks.get(msg.getBallot()) + 1;
-		acks.put(msg.getBallot(), nb);
-		for(int i : acks.keySet()) {
-			if (acks.get(i) > N/2) {
-				DecideMsg dec = new DecideMsg(proposal);
-				for(ActorRef a : members) {
-					a.tell(dec, getSelf());
-				}
-				break;
+		this.nAck += 1;
+		if (this.nAck > N/2) {
+			DecideMsg dec = new DecideMsg(proposal);
+			for(ActorRef a : members) {
+				a.tell(dec, getSelf());
 			}
+			this.nAck = 0;
 		}
 	}
 	
@@ -246,7 +243,7 @@ public class Process extends UntypedAbstractActor {
 	public void propose(int p) {		
 		this.ballot += this.N;
 		this.proposal = p;
-		this.acks.put(this.ballot, 0);
+		this.nAck = 0;
 		this.nbAbortRead = 0;
 		this.nbAbortImpose = 0; 
 		this.states = new HashMap<Integer, State>();
