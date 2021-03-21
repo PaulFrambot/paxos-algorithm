@@ -4,12 +4,12 @@ public class CrashMsg {
 	
 	private double crashProba;
 	
-	public CrashMsg(double c) {
-		crashProba = c;
+	public CrashMsg(double crashProba) {
+		this.crashProba = crashProba;
 	}
 
 	public double getCrashProba() {
-		return crashProba;
+		return this.crashProba;
 	}
 
 	public void setCrashProba(double crashProba) {

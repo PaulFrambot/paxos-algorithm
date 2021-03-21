@@ -3,12 +3,12 @@ package com.latest;;
 public class LaunchMsg {
 	private int proposal;
 	
-	public LaunchMsg(int p) {
-		proposal = p;
+	public LaunchMsg(int proposal) {
+		this.proposal = proposal;
 	}
 
 	public int getProposal() {
-		return proposal;
+		return this.proposal;
 	}
 
 	public void setProposal(int proposal) {

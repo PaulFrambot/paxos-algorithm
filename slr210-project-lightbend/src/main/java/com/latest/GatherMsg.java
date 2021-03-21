@@ -6,15 +6,15 @@ public class GatherMsg {
 	private int imposeballot;
 	private int estimate;
 	
-	public GatherMsg(int id_, int b, int i, int e) {
-		id = id_;
-		ballot = b;
-		imposeballot = i;
-		estimate = e;
+	public GatherMsg(int id, int ballot, int imposeBallot, int estimate) {
+		this.id = id;
+		this.ballot = ballot;
+		this.imposeballot = imposeBallot;
+		this.estimate = estimate;
 	}
 
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(int id) {
@@ -22,7 +22,7 @@ public class GatherMsg {
 	}
 
 	public int getBallot() {
-		return ballot;
+		return this.ballot;
 	}
 
 	public void setBallot(int ballot) {
@@ -30,7 +30,7 @@ public class GatherMsg {
 	}
 
 	public int getImposeballot() {
-		return imposeballot;
+		return this.imposeballot;
 	}
 
 	public void setImposeballot(int imposeballot) {
@@ -38,7 +38,7 @@ public class GatherMsg {
 	}
 
 	public int getEstimate() {
-		return estimate;
+		return this.estimate;
 	}
 
 	public void setEstimate(int estimate) {

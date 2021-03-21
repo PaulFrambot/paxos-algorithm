@@ -3,12 +3,12 @@ package com.latest;;
 public class ReadMsg {
 	private int ballot;
 	
-	public ReadMsg(int b) {
-		ballot = b;
+	public ReadMsg(int ballot) {
+		this.ballot = ballot;
 	}
 
 	public int getBallot() {
-		return ballot;
+		return this.ballot;
 	}
 
 	public void setBallot(int ballot) {

@@ -16,7 +16,7 @@ public class Main {
 	
 	final int N = 100;
 	final int f = 49;
-	final long tle = 500;
+	final long tle = 2000;
 	
 	final ActorSystem system = ActorSystem.create("system");
 	
@@ -39,9 +39,16 @@ public class Main {
 	    
 	    final long startTime = System.currentTimeMillis();
 	    
-	    Random r = new Random();
+	    int proposal = -1;
 	    for(int x = 0; x < N; x += 1) {
-	    	members.get(x).tell(new LaunchMsg(r.nextInt(2)), ActorRef.noSender());
+	    	double ran = Math.random();
+	    	if (ran >= 0.5) {
+	    		proposal = 1;
+	    	} 
+	    	else if (ran < 0.5 ) {
+	    		proposal = 0;
+	    	}
+	    	members.get(x).tell(new LaunchMsg(proposal), ActorRef.noSender());
 	    	members.get(x).tell(new Timer(startTime), ActorRef.noSender());
 	    }
 	    

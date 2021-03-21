@@ -4,13 +4,13 @@ public class ImposeMsg {
 	private int ballot;
 	private int proposal;
 	
-	public ImposeMsg(int b, int p) {
-		ballot = b;
-		proposal = p;
+	public ImposeMsg(int ballot, int proposal) {
+		this.ballot = ballot;
+		this.proposal = proposal;
 	}
 
 	public int getBallot() {
-		return ballot;
+		return this.ballot;
 	}
 
 	public void setBallot(int ballot) {
@@ -18,7 +18,7 @@ public class ImposeMsg {
 	}
 
 	public int getProposal() {
-		return proposal;
+		return this.proposal;
 	}
 
 	public void setProposal(int proposal) {
