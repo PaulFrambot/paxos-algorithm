@@ -1,9 +1,9 @@
-package com.example;;
+package com.latest;;
 
-public class AckMsg {
+public class ReadMsg {
 	private int ballot;
 	
-	public AckMsg(int b) {
+	public ReadMsg(int b) {
 		ballot = b;
 	}
 

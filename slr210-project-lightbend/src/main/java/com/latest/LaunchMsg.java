@@ -1,4 +1,4 @@
-package com.example;;
+package com.latest;;
 
 public class LaunchMsg {
 	private int proposal;

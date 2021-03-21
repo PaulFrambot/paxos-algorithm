@@ -1,4 +1,4 @@
-package com.example;
+package com.latest;
 
 import akka.actor.Props;
 import akka.actor.UntypedAbstractActor;
