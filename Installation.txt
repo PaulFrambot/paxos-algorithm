@@ -1,0 +1,32 @@
+Install java 8 of Oracle and Maven https://maven.apache.org/
+
+Go to https://developer.lightbend.com/start/?group=akka&project=akka-quickstart-java  , click on "create a project for me" and download it
+
+In Eclipse: File , Import, Maven, Existing Maven Projects, Paste the directory , Wait that the pom.xml  appears in the list (green box ticked), Next
+
+Run AkkaQuickStart.java , you should see:
+[2020-05-13 18:07:51,634] [INFO] [com.example.Greeter] [helloakka-akka.actor.default-dispatcher-6] [akka://helloakka/user/greeter] - Hello Charles!
+[2020-05-13 18:07:51,636] [INFO] [com.example.GreeterBot] [helloakka-akka.actor.default-dispatcher-3] [akka://helloakka/user/Charles] - Greeting 1 for Charles
+[2020-05-13 18:07:51,636] [INFO] [com.example.Greeter] [helloakka-akka.actor.default-dispatcher-6] [akka://helloakka/user/greeter] - Hello Charles!
+[2020-05-13 18:07:51,636] [INFO] [com.example.GreeterBot] [helloakka-akka.actor.default-dispatcher-3] [akka://helloakka/user/Charles] - Greeting 2 for Charles
+[2020-05-13 18:07:51,637] [INFO] [com.example.Greeter] [helloakka-akka.actor.default-dispatcher-6] [akka://helloakka/user/greeter] - Hello Charles!
+[2020-05-13 18:07:51,637] [INFO] [com.example.GreeterBot] [helloakka-akka.actor.default-dispatcher-3] [akka://helloakka/user/Charles] - Greeting 3 for Charles
+
+
+Then create the classes Main.java , Members.java and Process.java (from ecampus) and run Main , you should see:
+[2020-05-13 18:09:10,906] [INFO] [akka.event.slf4j.Slf4jLogger] [system-akka.actor.default-dispatcher-4] [] - Slf4jLogger started
+[2020-05-13 18:09:10,988] [INFO] [akka.actor.ActorSystemImpl] [system-akka.actor.default-dispatcher-5] [akka.actor.ActorSystemImpl(system)] - System started with N=10
+[2020-05-13 18:09:10,991] [INFO] [com.example.Process] [system-akka.actor.default-dispatcher-5] [akka://system/user/0] - p0 received processes info
+[2020-05-13 18:09:10,991] [INFO] [com.example.Process] [system-akka.actor.default-dispatcher-5] [akka://system/user/1] - p1 received processes info
+[2020-05-13 18:09:10,991] [INFO] [com.example.Process] [system-akka.actor.default-dispatcher-5] [akka://system/user/2] - p2 received processes info
+[2020-05-13 18:09:10,991] [INFO] [com.example.Process] [system-akka.actor.default-dispatcher-5] [akka://system/user/3] - p3 received processes info
+[2020-05-13 18:09:10,991] [INFO] [com.example.Process] [system-akka.actor.default-dispatcher-8] [akka://system/user/4] - p4 received processes info
+[2020-05-13 18:09:10,992] [INFO] [com.example.Process] [system-akka.actor.default-dispatcher-8] [akka://system/user/5] - p5 received processes info
+[2020-05-13 18:09:10,992] [INFO] [com.example.Process] [system-akka.actor.default-dispatcher-8] [akka://system/user/6] - p6 received processes info
+[2020-05-13 18:09:10,992] [INFO] [com.example.Process] [system-akka.actor.default-dispatcher-8] [akka://system/user/7] - p7 received processes info
+[2020-05-13 18:09:10,992] [INFO] [com.example.Process] [system-akka.actor.default-dispatcher-8] [akka://system/user/8] - p8 received processes info
+[2020-05-13 18:09:10,992] [INFO] [com.example.Process] [system-akka.actor.default-dispatcher-8] [akka://system/user/9] - p9 received processes info
+
+
+
+
