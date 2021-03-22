@@ -153,7 +153,7 @@ public class Process extends UntypedAbstractActor {
 	public void receiveDecide(DecideMsg msg) {
 		if(!decided) {
 			long endTime = System.currentTimeMillis();
-			log.info("p" + Integer.toString(id) + " decides " + Integer.toString(msg.getProposal()) + " in " + Long.toString(endTime - startTime) + "ms");
+			log.info("p" + Integer.toString(id) + " took " + Long.toString(endTime - startTime) + " ms to decide : "+ Integer.toString(msg.getProposal()));
 			for(ActorRef a : members) {
 				a.tell(msg, getSelf());
 			}
@@ -254,9 +254,3 @@ public class Process extends UntypedAbstractActor {
 		}
 	}
 }
-
-
-
-
-
-
